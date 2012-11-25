@@ -5,8 +5,19 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+# Mongoid
+gem "mongoid"
+gem "bson_ext"
+gem "mongoid_spacial", :git => 'git://github.com/ryanong/mongoid_spacial.git'
+gem 'kaminari'
+#gem 'mongoid-mapreduce'
+gem 'mongoid_search', :git => 'git://github.com/mauriciozaffari/mongoid_search.git'
 
+# Devise
+gem "devise", "~> 2.0.0"
+gem "simple_form", "~> 2.0.1"
+gem "country_select"
+gem 'omniauth', '~> 1.1.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,6 +34,12 @@ end
 gem 'jquery-rails'
 
 gem "twitter-bootstrap-rails"
+
+# Facebook
+gem 'omniauth-facebook'
+
+# Twitter
+gem 'omniauth-twitter'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
