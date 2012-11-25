@@ -6,12 +6,12 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Mongoid
-gem "mongoid"
+gem "mongoid", "~> 3.0.0"
 gem "bson_ext"
 gem "mongoid_spacial", :git => 'git://github.com/ryanong/mongoid_spacial.git'
 gem 'kaminari'
 #gem 'mongoid-mapreduce'
-gem 'mongoid_search', :git => 'git://github.com/mauriciozaffari/mongoid_search.git'
+gem 'mongoid_search'
 
 # Devise
 gem "devise", "~> 2.0.0"
@@ -22,6 +22,7 @@ gem 'omniauth', '~> 1.1.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'less-rails-bootstrap', '~> 2.0.3'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
