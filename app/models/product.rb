@@ -5,5 +5,6 @@ class Product
   field :barcode, :type => String
   field :existence, :type => Boolean
   field :price, :type => Float
+  field :marca, :type => String
 
 end
