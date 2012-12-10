@@ -1,0 +1,38 @@
+      <table class="span8 table table-bordered table-hover table-condensed">
+        <thead>
+          <tr>
+            <th style="text-align:left">Texto</th>
+            <th>Actual</th>
+            <th>Nuevo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr style="<%= "background-color:#93DAD7 !important;" unless post.nuevo.nil? || post.nuevo.empty? %>" >
+              <%= form_for(post, {:url => training_path(post), :method => 'put'}) do |p| %>
+              <td class="span6">
+                <p><%= p.label post.text %></p>
+              </td>
+              <td><%= p.label post.actual %></td>
+              <td class="span3">
+                Positivo <%= p.radio_button :nuevo, 'p' %>
+                <br>
+                Negativo <%= p.radio_button :nuevo, 'n' %>
+                <br>
+                Neutro <%= p.radio_button :nuevo, 'nt' %>
+              </td>
+              <td>
+                <%= hidden_field_tag 'page', @page %>
+                <%= p.submit 'update', :class => "btn btn-mini btn-primary" %>
+                <%= link_to 'delete', training_path(post) + '?page=' + @page.to_s, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-mini btn-danger" %> 
+              </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+        <div><%= paginate @posts %></div>
+      </table>
+
+
+

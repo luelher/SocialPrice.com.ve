@@ -10,8 +10,10 @@ gem "mongoid", "~> 3.0.0"
 gem "bson_ext"
 gem "mongoid_spacial", :git => 'git://github.com/ryanong/mongoid_spacial.git'
 gem 'kaminari'
+gem 'activeadmin'
 #gem 'mongoid-mapreduce'
 gem 'mongoid_search'
+
 
 # Devise
 gem "devise", "~> 2.0.0"
@@ -22,6 +24,12 @@ gem 'omniauth', '~> 1.1.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'jquery-rails'
+
+  gem 'jquery-ui-rails'
+
+  gem "twitter-bootstrap-rails"
+  
   gem 'less-rails-bootstrap', '~> 2.0.3'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -32,9 +40,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
-gem "twitter-bootstrap-rails"
 
 # Facebook
 gem 'omniauth-facebook'
