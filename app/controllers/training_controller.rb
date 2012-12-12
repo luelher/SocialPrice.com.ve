@@ -1,7 +1,7 @@
 class TrainingController < ApplicationController
 
   def index
-    @posts = Post.order_by.page params[:page]  
+    @posts = Post.order_by.page params[:page]
     @page = params[:page]
   end
 
