@@ -1,5 +1,9 @@
 class TrainingController < ApplicationController
+  before_filter :totales
 
+  def totales
+    @porcentaje = ((Post.where(:nuevo.in => ["p","n","nt"]).count.to_f * 100.to_f) / Post.count.to_f).round(2)
+  end
   def index
     @posts = Post.order_by.page params[:page]
     @page = params[:page]

@@ -1,3 +1,5 @@
+<div><span>Porcentaje Procesado: <%= @porcentaje %>%</span> </div>
+
       <table class="span8 table table-bordered table-hover table-condensed">
         <thead>
           <tr>
@@ -12,9 +14,9 @@
             <tr style="<%= "background-color:#93DAD7 !important;" unless post.nuevo.nil? || post.nuevo.empty? %>" >
               <%= form_for(post, {:url => training_path(post), :method => 'put'}) do |p| %>
               <td class="span6">
-                <p><%= p.label post.text %></p>
+                <p><%= p.label post.text.to_s %></p>
               </td>
-              <td><%= p.label post.actual %></td>
+              <td><%= p.label post.actual.to_s %></td>
               <td class="span3">
                 Positivo <%= p.radio_button :nuevo, 'p' %>
                 <br>
