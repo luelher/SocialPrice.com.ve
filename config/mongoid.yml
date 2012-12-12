@@ -74,10 +74,11 @@ test:
 production:
   sessions:
     default:
-      database: socialprice
-      hosts:
-        - alex.mongohq.com:10034
-      username: socialprice
-      password: s0c14lpr1c3
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      # database: socialprice
+      # hosts:
+      #   - alex.mongohq.com:10034
+      # username: socialprice
+      # password: s0c14lpr1c3
       options:
   options:
