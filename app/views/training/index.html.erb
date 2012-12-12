@@ -1,5 +1,5 @@
-<div><span>Porcentaje Procesado: <%= @porcentaje %>%</span> </div>
-
+<div><span id="info">Porcentaje Procesado: <%= @porcentaje %>% (<%= @procesados %> de <%= @totales %>) </span> </div>
+<!--       <div id="loading" style="hide"><img src="http://www.tram.cat/images/ajax-loader.gif"> </div> -->
       <table class="span8 table table-bordered table-hover table-condensed">
         <thead>
           <tr>
@@ -11,8 +11,8 @@
         </thead>
         <tbody>
           <% @posts.each do |post| %>
-            <tr style="<%= "background-color:#93DAD7 !important;" unless post.nuevo.nil? || post.nuevo.empty? %>" >
-              <%= form_for(post, {:url => training_path(post), :method => 'put'}) do |p| %>
+            <tr style="<%= "background-color:#93DAD7" unless post.nuevo.nil? || post.nuevo.empty? %>" id="<%= post.id %>" >
+              <%= form_for(post, {:remote => true, :url => training_path(post), :method => 'put'}) do |p| %>
               <td class="span6">
                 <p><%= p.label post.text.to_s %></p>
               </td>
@@ -27,7 +27,7 @@
               <td>
                 <%= hidden_field_tag 'page', @page %>
                 <%= p.submit 'update', :class => "btn btn-mini btn-primary" %>
-                <%= link_to 'delete', training_path(post) + '?page=' + @page.to_s, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-mini btn-danger" %> 
+                <%= link_to 'delete', training_path(post) + '?page=' + @page.to_s, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "btn btn-mini btn-danger" %> 
               </td>
               <% end %>
             </tr>
